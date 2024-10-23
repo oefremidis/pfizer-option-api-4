@@ -1,7 +1,6 @@
 <template>
 
-<li>{{ movieItem.title }}</li>
-{{ msg }}
+<li @click="selectMovies">{{ movieItem.title }}</li> <hr>
 
 </template>
 
@@ -10,8 +9,14 @@
 export default {
   props: {
     movieItem: Object,
-    msg: String
+  },
+
+  methods: {
+    selectMovies(){
+      this.$emit('select-movie', this.movieItem)
+    }
   }
+
 }
 
 </script>
